@@ -15,7 +15,7 @@ WardrobeWizard is a full-stack application for managing and enriching metadata o
 - K-means clustering analysis for outfit grouping
 - REST API endpoints for image processing
 
-### ✅ Frontend Dashboard - COMPLETED
+### ✅ Frontend Dashboard (Phase 1) - COMPLETED
 - Real-time server status monitoring
 - Image processing queue management
 - Statistics overview (processed, queued, errors)
@@ -25,9 +25,148 @@ WardrobeWizard is a full-stack application for managing and enriching metadata o
 
 ---
 
-## Backend Implementation Roadmap
+## Frontend Implementation Roadmap
 
-### Phase 1: Pose Similarity Analysis ⏳
+### Phase 2: Images Grid & Detail View 🖼️
+**Goal**: Build comprehensive image browsing and analysis interface
+
+#### Tasks:
+- [ ] Create Images page with grid view layout
+- [ ] Implement image thumbnail grid with lazy loading
+- [ ] Add filtering controls (status, tags, date range, cluster)
+- [ ] Build sorting options (date, name, status, similarity)
+- [ ] Add multi-select functionality with bulk actions
+- [ ] Create single-image detail page route
+- [ ] Build detail page with full-size image viewer
+- [ ] Display all metadata (tags, embeddings, status, timestamps)
+- [ ] Add manual tag editing interface
+- [ ] Create "trigger analysis" panel with buttons for each AI model
+- [ ] Implement "similar images" section using embedding similarity
+- [ ] Add "suggested tags" widget based on similar images
+- [ ] Build tag suggestion acceptance/rejection UI
+- [ ] Add navigation between images (prev/next)
+
+**Key Features**:
+- Grid view with adjustable thumbnail size
+- Quick preview on hover
+- Bulk operations (delete, reprocess, tag)
+- Detail page with comprehensive metadata
+- On-demand analysis triggering
+- Visual similarity recommendations
+
+---
+
+### Phase 3: Galleries Management 🎨
+**Goal**: Enable users to create, organize, and manage custom image collections
+
+#### Tasks:
+- [ ] Create Galleries page with gallery cards/tiles
+- [ ] Build "Create New Gallery" dialog with name/description/type fields
+- [ ] Implement gallery types: Conceptual, Photoshoot, Event
+- [ ] Add gallery card view showing cover image, name, count, date
+- [ ] Create gallery detail page with image grid
+- [ ] Build "Add Images to Gallery" interface with search/filter
+- [ ] Implement drag-and-drop image reordering within galleries
+- [ ] Add bulk add/remove images functionality
+- [ ] Create gallery metadata editor (name, description, date, location)
+- [ ] Build automatic gallery suggestions based on clustering
+- [ ] Add "Smart Gallery" feature (auto-populate by tags/embeddings)
+- [ ] Implement gallery sharing/export functionality
+- [ ] Add gallery statistics (total images, date range, top tags)
+
+**Gallery Types**:
+- **Conceptual**: User-defined theme (e.g., "Blue Dresses", "Summer Vibes")
+- **Photoshoot**: Images from same session (sequence detection)
+- **Event**: Images from specific event (e.g., "MTV VMAs 2024")
+
+---
+
+### Phase 4: Tag Management System 🏷️
+**Goal**: Comprehensive tag administration and organization
+
+#### Tasks:
+- [ ] Create Tags page with tag list/table view
+- [ ] Display all tags with usage count and image thumbnails
+- [ ] Build tag search and filter interface
+- [ ] Implement tag merging functionality (combine similar tags)
+- [ ] Add tag renaming with bulk update
+- [ ] Create tag hierarchy/category system
+- [ ] Build tag deletion with reassignment options
+- [ ] Add tag confidence score thresholds (hide low-confidence tags)
+- [ ] Implement bulk tag operations (apply to multiple images)
+- [ ] Create tag validation rules (formatting, duplicates)
+- [ ] Add tag statistics dashboard (most used, recent, orphaned)
+- [ ] Build tag suggestion review queue (approve/reject AI suggestions)
+- [ ] Implement tag color coding and icons
+- [ ] Add tag export/import functionality
+
+**Tag Management Features**:
+- Merge similar tags (e.g., "dress" + "dresses" → "dress")
+- Bulk apply/remove tags
+- Tag confidence filtering
+- Orphaned tag cleanup
+- Category organization
+
+---
+
+### Phase 5: Tools & Background Processing 🛠️
+**Goal**: Advanced control over backend operations and database management
+
+#### Tasks:
+- [ ] Create Tools page with sections for different operations
+- [ ] Build background task status panel with live progress
+- [ ] Add task queue visualization (pending, running, completed)
+- [ ] Implement task cancellation and retry controls
+- [ ] Create batch processing wizard (select models, set parameters)
+- [ ] Add scheduled task configuration (cron-like interface)
+- [ ] Build database maintenance tools (cleanup, reindex, optimize)
+- [ ] Implement data export tools (CSV, JSON, backup)
+- [ ] Add data import wizard (bulk image upload with metadata)
+- [ ] Create model performance metrics dashboard
+- [ ] Build embedding recomputation tool (for model updates)
+- [ ] Add clustering parameter tuning interface
+- [ ] Implement database statistics viewer (size, growth, fragmentation)
+- [ ] Create API usage logs and rate limit monitoring
+
+**Tool Categories**:
+- **Processing**: Start/stop server, batch operations, task management
+- **Database**: Backup/restore, cleanup, optimization, statistics
+- **Import/Export**: Bulk uploads, metadata export, data migration
+- **Maintenance**: Recompute embeddings, rebuild indexes, clear cache
+
+---
+
+### Phase 6: Settings & Configuration ⚙️
+**Goal**: User preferences and system configuration management
+
+#### Tasks:
+- [ ] Create Settings page with tabbed sections
+- [ ] Build Appearance settings (color scheme, density, language)
+- [ ] Add User Profile section (name, email, avatar, password)
+- [ ] Implement Notification preferences (email, in-app, frequency)
+- [ ] Create API Configuration panel (endpoint URLs, timeouts, retries)
+- [ ] Add Model Settings (confidence thresholds, enabled models)
+- [ ] Build Storage settings (cache size, retention policies)
+- [ ] Implement Performance settings (concurrent jobs, batch size)
+- [ ] Add Security settings (API keys, access tokens, rate limits)
+- [ ] Create Data Retention policies configuration
+- [ ] Build Integration settings (webhooks, external services)
+- [ ] Add Export format preferences (defaults, templates)
+- [ ] Implement Backup schedule configuration
+- [ ] Create Settings export/import for team sharing
+
+**Settings Categories**:
+- **Appearance**: Themes, layout density, default views
+- **User Account**: Profile, credentials, preferences
+- **Processing**: Model parameters, thresholds, defaults
+- **Storage**: Cache, retention, cleanup policies
+- **Integrations**: External services, webhooks, API keys
+
+---
+
+## Backend Enhancement Roadmap (Future)
+
+### Phase 7: Pose Similarity Analysis ⏳
 **Goal**: Enable comparison and grouping of model poses across outfit photos
 
 #### Tasks:
@@ -39,14 +178,9 @@ WardrobeWizard is a full-stack application for managing and enriching metadata o
 - [ ] Add pose visualization overlay endpoint for debugging
 - [ ] Store pose metadata (keypoints, confidence scores) in database
 
-**Data Structure**:
-- Pose keypoints: 17-33 body landmarks with (x, y, confidence)
-- Similarity scores between image pairs
-- Pose cluster assignments
-
 ---
 
-### Phase 2: Human Action Classification ⏳
+### Phase 8: Human Action Classification ⏳
 **Goal**: Automatically classify actions/activities shown in outfit photos
 
 #### Tasks:
@@ -58,15 +192,9 @@ WardrobeWizard is a full-stack application for managing and enriching metadata o
 - [ ] Store action labels with confidence scores in database
 - [ ] Build action filtering/search functionality
 
-**Action Categories** (example):
-- Static poses: standing, sitting, kneeling
-- Dynamic actions: walking, running, dancing
-- Gestures: waving, pointing, hand-on-hip
-- Interactions: with props, with environment
-
 ---
 
-### Phase 3: Sequence Detection ⏳
+### Phase 9: Sequence Detection ⏳
 **Goal**: Identify and track outfit changes, pose sequences, and temporal patterns
 
 #### Tasks:
@@ -78,56 +206,6 @@ WardrobeWizard is a full-stack application for managing and enriching metadata o
 - [ ] Implement automatic shoot/session segmentation
 - [ ] Store sequence metadata (start/end frames, duration, transitions)
 
-**Sequence Features**:
-- Outfit consistency tracking across frames
-- Pose progression analysis
-- Scene/location continuity detection
-- Automatic shoot boundary detection
-
----
-
-## Frontend Dashboard Enhancements
-
-### Phase 4: Advanced Analytics Visualization 📊
-**Goal**: Add rich visual analytics for new backend capabilities
-
-#### Tasks:
-- [ ] Create pose similarity heatmap view
-- [ ] Build action distribution pie/bar charts
-- [ ] Add sequence timeline visualization component
-- [ ] Implement cluster visualization (outfit clusters, pose clusters)
-- [ ] Create interactive pose comparison tool
-- [ ] Add filtering by action type, pose cluster, sequence
-- [ ] Build export functionality for analytics reports
-
----
-
-### Phase 5: Batch Operations & Workflow Management 🔄
-**Goal**: Enable efficient bulk processing and workflow automation
-
-#### Tasks:
-- [ ] Add batch pose analysis controls
-- [ ] Create action classification queue management
-- [ ] Implement sequence detection pipeline UI
-- [ ] Build workflow templates (e.g., "Full Analysis", "Quick Scan")
-- [ ] Add progress tracking for multi-stage processing
-- [ ] Create retry/reprocess functionality for failed analyses
-- [ ] Implement priority queue management
-
----
-
-### Phase 6: Search & Discovery Features 🔍
-**Goal**: Advanced search capabilities using enriched metadata
-
-#### Tasks:
-- [ ] Build multi-faceted search interface (pose + action + outfit)
-- [ ] Add visual similarity search using embeddings
-- [ ] Create "find similar poses" feature
-- [ ] Implement sequence-based search (find all photos from same shoot)
-- [ ] Add action-based filtering (show all "walking" photos)
-- [ ] Build clustering explorer UI (browse pose/outfit clusters)
-- [ ] Create saved search/filter presets
-
 ---
 
 ## Technical Architecture
@@ -135,56 +213,191 @@ WardrobeWizard is a full-stack application for managing and enriching metadata o
 ### Backend Stack:
 - **Framework**: FastAPI
 - **Models**: 
-  - Object Detection: (your current model)
-  - Classification: (your current model)
-  - Captioning: (your current model)
-  - Embeddings: (your current model)
+  - Object Detection: (current implementation)
+  - Classification: (current implementation)
+  - Captioning: (current implementation)
+  - Embeddings: (current implementation)
   - Pose: TBD (OpenPose/MediaPipe/etc.)
   - Action: TBD (I3D/SlowFast/etc.)
 - **Clustering**: K-means (sklearn)
-- **Database**: (specify your DB - PostgreSQL/MongoDB/etc.)
+- **Database**: TBD (PostgreSQL/MongoDB recommended)
 
 ### Frontend Stack:
 - **Framework**: Reflex (Python-based)
 - **Styling**: TailwindCSS
 - **State Management**: Reflex State
 - **Themes**: Moonlit Clearing (purple/indigo) + Enchanted Forest (green)
+- **Routing**: Multi-page application (Dashboard, Images, Galleries, Tags, Tools, Settings)
 
 ---
 
-## Database Schema Enhancements Needed
+## Database Schema (Proposed)
 
-### New Fields for Images Table:
+### Current Tables:
 ```
-- pose_keypoints: JSON (body joint coordinates)
-- pose_cluster_id: INT
-- action_labels: JSON array
-- sequence_id: INT (foreign key to sequences table)
-- frame_number: INT (position in sequence)
+images:
+  - id: PRIMARY KEY
+  - filename: VARCHAR
+  - url: VARCHAR
+  - status: ENUM (pending, processing, completed, error)
+  - upload_date: TIMESTAMP
+  - processed_date: TIMESTAMP
+  - size_kb: INT
+  - width: INT
+  - height: INT
+  - object_detection_results: JSON
+  - classification_labels: JSON
+  - caption: TEXT
+  - embedding: VECTOR (for similarity search)
+  - cluster_id: INT
+  - tags: JSON ARRAY
 ```
 
-### New Tables:
+### New Tables Needed:
 ```
-- sequences: id, start_time, end_time, outfit_id, location
-- pose_clusters: id, centroid, member_count
-- action_taxonomy: id, name, parent_category
+galleries:
+  - id: PRIMARY KEY
+  - name: VARCHAR
+  - description: TEXT
+  - type: ENUM (conceptual, photoshoot, event)
+  - cover_image_id: FOREIGN KEY
+  - created_date: TIMESTAMP
+  - metadata: JSON (location, event_date, etc.)
+
+gallery_images:
+  - gallery_id: FOREIGN KEY
+  - image_id: FOREIGN KEY
+  - position: INT
+  - added_date: TIMESTAMP
+
+tags:
+  - id: PRIMARY KEY
+  - name: VARCHAR UNIQUE
+  - category: VARCHAR
+  - color: VARCHAR
+  - confidence_threshold: FLOAT
+  - created_date: TIMESTAMP
+
+image_tags:
+  - image_id: FOREIGN KEY
+  - tag_id: FOREIGN KEY
+  - confidence: FLOAT
+  - source: ENUM (ai, manual, suggested)
+
+background_tasks:
+  - id: PRIMARY KEY
+  - type: VARCHAR
+  - status: ENUM (queued, running, completed, failed, cancelled)
+  - progress: FLOAT
+  - start_time: TIMESTAMP
+  - end_time: TIMESTAMP
+  - parameters: JSON
+  - result: JSON
+
+pose_data (future):
+  - image_id: FOREIGN KEY
+  - keypoints: JSON
+  - pose_cluster_id: INT
+  - confidence: FLOAT
+
+action_labels (future):
+  - image_id: FOREIGN KEY
+  - action: VARCHAR
+  - confidence: FLOAT
+
+sequences (future):
+  - id: PRIMARY KEY
+  - start_time: TIMESTAMP
+  - end_time: TIMESTAMP
+  - type: VARCHAR
 ```
 
 ---
 
-## Next Immediate Steps:
+## Navigation Structure
 
-1. **Choose pose estimation model** (recommendation: MediaPipe for speed, OpenPose for accuracy)
-2. **Define pose similarity metric** (cosine similarity of normalized keypoints is a good start)
-3. **Set up pose detection pipeline** in FastAPI
-4. **Test on sample fashion dataset** to validate quality
-5. **Update database schema** to store pose data
-6. **Create dashboard UI** for pose visualization
+```
+WardrobeWizard
+├── Dashboard (/)                 ✅ COMPLETED
+│   ├── Server Status
+│   ├── Statistics Cards
+│   ├── Control Panel
+│   └── Processing Queue Preview
+│
+├── Images (/images)              📋 PHASE 2
+│   ├── Grid View
+│   ├── Filters & Sorting
+│   └── Detail View (/images/:id)
+│       ├── Full Image Display
+│       ├── Metadata Panel
+│       ├── Trigger Analysis
+│       ├── Similar Images
+│       └── Tag Suggestions
+│
+├── Galleries (/galleries)        📋 PHASE 3
+│   ├── Gallery Cards
+│   ├── Create Gallery
+│   └── Gallery Detail (/galleries/:id)
+│       ├── Image Grid
+│       ├── Metadata Editor
+│       └── Add/Remove Images
+│
+├── Tags (/tags)                  📋 PHASE 4
+│   ├── Tag List/Table
+│   ├── Tag Statistics
+│   ├── Merge/Rename Tools
+│   └── Suggestion Queue
+│
+├── Tools (/tools)                📋 PHASE 5
+│   ├── Background Tasks
+│   ├── Batch Processing
+│   ├── Database Management
+│   └── Import/Export
+│
+└── Settings (/settings)          📋 PHASE 6
+    ├── Appearance
+    ├── User Profile
+    ├── Processing Config
+    ├── API Settings
+    └── Integrations
+```
 
 ---
 
-## Notes:
+## Next Immediate Steps
+
+### For Frontend Development:
+1. **Create routing structure** for all 6 pages
+2. **Start with Images page** (most critical for users)
+3. **Build image grid component** with filtering/sorting
+4. **Implement single-image detail page** with full analysis UI
+5. **Create reusable components** (image card, filter panel, etc.)
+
+### For Backend Integration:
+1. **Define all API endpoints** needed for each page
+2. **Implement pagination** for large image collections
+3. **Add WebSocket support** for real-time task progress
+4. **Create search endpoints** (by tags, similarity, metadata)
+5. **Build gallery CRUD operations**
+
+---
+
+## Session Goals
+
+**Current Session Target**: Complete Phases 2-4 (3 phases)
+- Phase 2: Images Grid & Detail View
+- Phase 3: Galleries Management  
+- Phase 4: Tag Management System
+
+**Next Session**: Phases 5-6
+- Phase 5: Tools & Background Processing
+- Phase 6: Settings & Configuration
+
+---
+
+## Notes
 - Fashion/outfit image database focused on model photography
 - Emphasis on pose variation and outfit diversity
-- Need efficient processing for large image collections
+- Need efficient processing for large image collections (10,000+ images)
 - Real-time monitoring critical for long-running batch jobs
+- User experience priority: Fast browsing, intuitive tagging, powerful search
