@@ -2,7 +2,8 @@ import reflex as rx
 from app.states.dashboard_state import DashboardState
 
 
-def nav_item(text: str, icon: str, is_active: bool) -> rx.Component:
+def nav_item(text: str, icon: str, href: str) -> rx.Component:
+    is_active = DashboardState.router.page.path == href
     active_style = rx.cond(
         DashboardState.color_scheme == "moonlit_clearing",
         "flex items-center px-3 py-2.5 text-sm font-semibold bg-purple-600/20 text-purple-300 rounded-lg group",
@@ -36,7 +37,7 @@ def nav_item(text: str, icon: str, is_active: bool) -> rx.Component:
             class_name="flex items-center gap-3 transition-all duration-200",
         ),
         class_name=rx.cond(is_active, active_style, inactive_style),
-        href="#",
+        href=href,
     )
 
 
@@ -68,10 +69,10 @@ def sidebar() -> rx.Component:
                     ),
                 ),
                 rx.el.nav(
-                    nav_item("Dashboard", "layout-dashboard", True),
-                    nav_item("Images", "image", False),
-                    nav_item("API Logs", "scroll-text", False),
-                    nav_item("Settings", "settings", False),
+                    nav_item("Dashboard", "layout-dashboard", "/"),
+                    nav_item("Images", "image", "/images"),
+                    nav_item("API Logs", "scroll-text", "#"),
+                    nav_item("Settings", "settings", "#"),
                     class_name="flex-1 flex flex-col gap-1 p-2",
                 ),
             ),
@@ -84,7 +85,7 @@ def sidebar() -> rx.Component:
                     )
                 ),
                 rx.el.div(
-                    nav_item("Help", "life-buoy", False),
+                    nav_item("Help", "life-buoy", "#"),
                     rx.el.div(
                         rx.image(
                             src="https://api.dicebear.com/9.x/notionists/svg?seed=Admin",

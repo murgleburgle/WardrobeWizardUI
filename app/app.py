@@ -5,6 +5,9 @@ from app.components.header import header
 from app.components.stats_cards import stats_overview
 from app.components.control_panel import control_panel
 from app.components.image_table import image_table
+from app.pages.images import images
+from app.pages.image_detail import image_detail
+from app.states.image_detail_state import ImageDetailState
 
 
 def index() -> rx.Component:
@@ -44,3 +47,5 @@ app = rx.App(
     ],
 )
 app.add_page(index)
+app.add_page(images, route="/images")
+app.add_page(image_detail, route="/images/[image_id]")
